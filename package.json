@@ -2,10 +2,10 @@
   "name": "acronym-api",
   "version": "0.0.0",
   "description": "TypeScript + Express API Server",
-  "author": "",
+  "author": "bindlebisu",
   "license": "ISC",
   "scripts": {
-    "start": "npm run build && cross-env NODE_ENV=production node dist/server.js",
+    "start": "node dist/server.js",
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "swc src -d dist --source-maps --copy-files",
     "build:tsc": "tsc && tsc-alias",
@@ -74,5 +74,8 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "engines": {
+    "node": "16.17.0"
   }
 }

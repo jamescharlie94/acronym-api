@@ -1,32 +1,32 @@
 tags:
-- name: users
-  description: users API
+- name: acronyms
+  description: acronyms API
 
 paths:
-# [GET] users
-  /users:
+# [GET] acronym
+  /acronyms:
     get:
       tags:
-      - users
-      summary: Find All Users
+      - acronyms
+      summary: Find All acronyms
       responses:
         200:
           description: 'OK'
         500:
           description: 'Server Error'
 
-# [POST] users
+# [POST] acronym
     post:
       tags:
-      - users
-      summary: Add User
+      - acronyms
+      summary: Add acronym
       parameters:
       - name: body
         in: body
-        description: user Data
+        description: acronym Data
         required: true
         schema:
-          $ref: '#/definitions/users'
+          $ref: '#/definitions/acronyms'
       responses:
         201:
           description: 'Created'
@@ -37,43 +37,24 @@ paths:
         500:
           description: 'Server Error'
 
-# [GET] users/id
-  /users/{id}:
-    get:
-      tags:
-      - users
-      summary: Find User By Id
-      parameters:
-      - name: id
-        in: path
-        description: User Id
-        required: true
-        type: integer
-      responses:
-        200:
-          description: 'OK'
-        409:
-          description: 'Conflict'
-        500:
-          description: 'Server Error'
-
-# [PUT] users/id
+# [PUT] acronym/acronym
+  /acronym/{acronym}:
     put:
       tags:
-      - users
-      summary: Update User By Id
+      - acronyms
+      summary: Update acronym
       parameters:
-      - name: id
+      - name: acronym
         in: path
-        description: user Id
+        description: acronym
         required: true
-        type: integer
+        type: string
       - name: body
         in: body
-        description: user Data
+        description: acronym Data
         required: true
         schema:
-          $ref: '#/definitions/users'
+          $ref: '#/definitions/acronyms'
       responses:
         200:
           description: 'OK'
@@ -84,17 +65,17 @@ paths:
         500:
           description: 'Server Error'
 
-# [DELETE] users/id
+# [DELETE] acronym/acronym
     delete:
       tags:
-      - users
-      summary: Delete User By Id
+      - acronyms
+      summary: Delete acronym
       parameters:
-      - name: id
+      - name: acronym
         in: path
-        description: user Id
+        description: acronym
         required: true
-        type: integer
+        type: string
       responses:
         200:
           description: 'OK'
@@ -105,18 +86,18 @@ paths:
 
 # definitions
 definitions:
-  users:
+  acronyms:
     type: object
     required:
-        - email
-        - password
+        - acronym
+        - definition
     properties:
-      email:
+      acronym:
         type: string
-        description: user Email
-      password:
+        description: abbreviation of something
+      definition:
         type: string
-        description: user Password
+        description: definition of acronym
 
 schemes:
  - https

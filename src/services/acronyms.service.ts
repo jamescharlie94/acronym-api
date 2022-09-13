@@ -47,8 +47,6 @@ class AcronymService {
     const findAcronym: Acronym = this.acronyms.find(acronymItem => acronymItem.acronym === acronym);
     if (!findAcronym) throw new HttpException(409, "Acronym doesn't exist");
 
-    console.log(acronymData);
-
     const updateAcronymData: Acronym[] = this.acronyms.map((acronymItem: Acronym) => {
       if (acronymItem.acronym === findAcronym.acronym) acronymItem.definition = acronymData.definition;
       return acronymItem;
